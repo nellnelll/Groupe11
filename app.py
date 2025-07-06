@@ -3,9 +3,29 @@ import streamlit as st
 import duckdb
 import plotly.express as px
 
-st.set_page_config(page_title="Analyse Achats", layout="wide")
-st.title("Étape 1️⃣ – Importation des données")
+# --- STYLISATION DE LA PAGE ---
 
+st.set_page_config(page_title="Shopdern - Dashboard", layout="centered")
+# CSS pour le fond
+# CSS avec bonne portée
+st.markdown("""
+    <style>
+        .stApp {
+            background-color: #98FB98;
+        }
+        h1, h2 {
+            color: #C9E42F
+        }
+    </style>
+""", unsafe_allow_html=True)
+st.markdown("""
+    <h1 style='text-align: center; color: #1f77b4; font-size: 3em;'>
+        🛍️ <span style='color: #e15759;'>Shopdern</span> - Dashboard d’analyse
+    </h1>
+""", unsafe_allow_html=True)
+
+# --- TITRE DE LA PAGE ---
+st.title("Étape 1️⃣ – Importation des données")
 # Connexion à DuckDB (en mémoire)
 @st.cache_resource
 def init_db():
